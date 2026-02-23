@@ -31,7 +31,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Router>
+    <Router basename={import.meta.env.PROD ? "/sixfit" : undefined}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/workout-plans" element={<WorkoutPlans />} />
