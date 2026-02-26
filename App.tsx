@@ -9,14 +9,16 @@ import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import WorkoutPlans from './components/WorkoutPlans';
 import { analytics } from './services/firebaseService';
+import Pricing from './components/pricing';
 
 const HomePage: React.FC = () => (
   <div className="flex flex-col min-h-screen">
     <Navbar />
-    <main className="flex-grow">
+    <main className="grow">
       <Hero />
       <Features />
       <Testimonials />
+      <Pricing />
       <Download />
     </main>
     <Footer />

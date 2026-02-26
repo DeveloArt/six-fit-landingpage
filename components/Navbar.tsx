@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { NavItem } from '../types';
+import logo from '../assets/imgs/logo.png';
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Workout Plans', href: '/workout-plans' },
@@ -30,7 +31,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="shrink-0 flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
-            <img src="/assets/imgs/favicon.png" alt="Logo" className="w-15 h-15" />
+            <img src={logo} alt="Logo" className="w-15 h-15" />
           </div>
           
           {/* Desktop Menu */}
