@@ -24,6 +24,23 @@ const Hero: React.FC = () => {
     window.open(targetUrl, '_blank');
   };
 
+  const handleDownload = (platform?: string) => {
+    analytics.logEvent('download_click', { platform });
+    
+    let targetUrl = GOOGLE_PLAY_URL; // Default to Google Play
+    
+    if (platform) {
+      // If platform is explicitly specified
+      targetUrl = platform === 'ios' ? APP_STORE_URL : GOOGLE_PLAY_URL;
+    } else {
+      // Auto-detect device
+      const device = detectDevice();
+      targetUrl = device === 'ios' ? APP_STORE_URL : GOOGLE_PLAY_URL;
+    }
+    
+    window.open(targetUrl, '_blank');
+  };
+
   return (
     <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
       {/* Background Ambient Glows */}
@@ -58,9 +75,32 @@ const Hero: React.FC = () => {
               </a>
             </div>
             <div className="mt-10 flex items-center justify-center lg:justify-start gap-6 text-sm text-slate-400">
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <span className="material-icons text-gradient bg-green-500 text-xl">check_circle</span>
                 <span>1,000+ Downloads</span>
+              </div> */}
+              <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
+              <button 
+                onClick={() => handleDownload('ios')}
+                className="flex items-center justify-center gap-3 bg-white text-slate-900 px-6 py-3 rounded-xl hover:bg-gray-300 transition-colors duration-200 w-full sm:w-auto min-w-45 cursor-pointer"
+              >
+                <span className="material-icons text-3xl">apple</span>
+                <div className="text-left">
+                  <div className="text-[10px] uppercase font-bold text-slate-500">Download on the</div>
+                  <div className="text-lg font-bold leading-none">App Store</div>
+                </div>
+              </button>
+              
+              <button 
+                onClick={() => handleDownload('android')}
+                className="flex items-center justify-center gap-3 bg-transparent border border-white/30 text-white px-6 py-3 rounded-xl hover:bg-white/10 transition-colors duration-200 w-full sm:w-auto min-w-45 cursor-pointer"
+              >
+                <span className="material-icons text-3xl text-gradient bg-green-500">android</span>
+                <div className="text-left">
+                  <div className="text-[10px] uppercase font-bold text-slate-400">Get it on</div>
+                  <div className="text-lg font-bold leading-none">Google Play</div>
+                </div>
+              </button>
               </div>
               <div className="flex items-center gap-2">
                 <span className="material-icons text-gradient bg-green-500 text-xl">star</span>
