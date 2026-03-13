@@ -28,8 +28,6 @@ export interface WorkoutPlan {
   };
   targetReps: number;
   targetDuration?: number; // in minutes
-  category: 'strength' | 'cardio' | 'flexibility';
-  difficulty: 'beginner' | 'intermediate' | 'advanced';
   description: {
     en: string;
     pl: string;
