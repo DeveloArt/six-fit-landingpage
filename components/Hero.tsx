@@ -24,6 +24,30 @@ const Hero: React.FC = () => {
     window.open(targetUrl, '_blank');
   };
 
+  const plans = [
+    {
+      text: "My Goals",
+      subtitle: "Add your first goal",
+    },
+    {
+      text: "My Custom Plans",
+      subtitle: "Add your first plan",
+    },
+    {
+      text: "My Max Trainings",
+      subtitle: "Add First Max Workout",
+    },
+  ];
+
+  const week = [
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sun",
+    "Mon",
+  ]
   return (
     <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
       {/* Background Ambient Glows */}
@@ -71,8 +95,8 @@ const Hero: React.FC = () => {
 
           {/* Phone Mockup */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end order-2 relative">
-            <div className="relative w-70 sm:w-[320px] h-145 sm:h-160 bg-slate-900 rounded-[3rem] border-8 border-slate-800 shadow-2xl shadow-slate-900/50 transform rotate-6 hover:rotate-0 transition-transform duration-500">
-              <div className="w-full h-full rounded-[2.5rem] overflow-hidden bg-background-dark relative">
+            <div className="relative w-70 sm:w-[320px] h-145 sm:h-160 bg-green-900 rounded-[3rem] border-8 border-green-900 shadow-2xl shadow-slate-900/50 transform rotate-6 hover:rotate-0 transition-transform duration-500">
+              <div className="w-full h-full rounded-[2.5rem] overflow-hidden bg-[#112217] relative">
                 
                 {/* Status Bar */}
                 <div className="absolute top-0 w-full px-6 py-4 flex justify-between text-xs text-white z-20">
@@ -85,86 +109,84 @@ const Hero: React.FC = () => {
                 </div>
 
                 {/* App Content */}
-                <div className="pt-12 px-6 pb-4 h-full flex flex-col">
-                  {/* Header */}
-                  <div className="flex justify-between items-center mb-6">
-                    <div>
-                      <p className="text-slate-400 text-xs uppercase tracking-wider">Good Morning</p>
-                      <h3 className="text-white font-bold text-lg">Alex Johnson</h3>
-                    </div>
-                    <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center overflow-hidden border border-slate-600">
-                      <img 
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdYLxigtBVKg7LMzzT4T5c7uvHetc1jvZBdbUh4W7ShHyU5T4AMxBwfJr2kAtKS0t93byQw6Wx3qSPr3WW-vlK6VcyWLhWJuZDEszdDYIb2prlkIqC5xGiHZuLs1j7aJ8Q1oKx5UrS5iFrnEj1xwjiIMSaJLlsQok0tayf1uflRWvF7vRHys7LYDBprpLGiOZP_9GFBdjdN589fIyGzAmNU22Ynjrpej1JQq_W1dZelfH9tXg8m5cjlogbTix00pVgEepfli01axNm" 
-                        alt="Profile" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
+                <div className="pt-12 px-5 pb-20 h-full flex flex-col overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                  {/* Header Image */}
+                  <div className="w-full h-44 rounded-2xl overflow-hidden mb-6 shrink-0 relative">
+                    {/* fallback background just in case img doesn't load */}
+                    <div className="absolute inset-0 bg-slate-800"></div>
+                    <img 
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuA86lXJPz2HYaOvIB5gi98mdntMf0m72ZenfanM1D6xzw6bKw36jFwi-i-Ycq9g17rUI4iu8HJH7G752bF7tDXtC9GOxwtH3344xHqTP7J9aiR74pzauu2i_dy-a2KiJRb70mbp4vS-zGqDCdR-T2xs9PWL7PP5esoRZ2_6rf5DCvYh_noMLG-wr1H2u4733X627VRyWOoSondrpgg45C6TTz12bvp-kxlJGHxl4sxTdg9NeI7ERQLpH1VBbDIJBZGdkPfJvV4kPZjm" 
+                      alt="Workout" 
+                      className="w-full h-full object-cover relative z-10"
+                    />
                   </div>
 
                   {/* Main Card */}
-                  <div className="mx-0 bg-surface-dark/40 backdrop-blur-xl border border-white/10 p-6 rounded-3xl shadow-lg relative overflow-hidden group mb-4">
-                    <div className="absolute top-0 right-0 p-4 opacity-10">
-                      <span className="material-icons text-6xl text-gradient bg-sixfit">fitness_center</span>
-                    </div>
-                    <div className="mb-2">
-                      <span className="bg-green-500/10 text-green-500 text-xs font-bold px-2 py-1 rounded-full">Active Challenge</span>
-                    </div>
-                    <h2 className="text-2xl font-bold text-white mb-1">5-Minute Plank</h2>
-                    <div className="text-4xl font-extrabold text-white mb-2">2:30 <span className="text-sm font-normal text-slate-500">min</span></div>
-                    <p className="text-gradient bg-green-500 text-sm font-medium flex items-center gap-1 mb-6">
-                      <span className="material-icons text-sm">trending_up</span>
-                      Goal: 100 Reps (+15%)
-                    </p>
-                    
-                    {/* Chart */}
-                    <div className="h-24 w-full flex items-end justify-between gap-1">
-                      <div className="w-full bg-slate-700 rounded-t-lg h-[40%]"></div>
-                      <div className="w-full bg-slate-700 rounded-t-lg h-[60%]"></div>
-                      <div className="w-full bg-slate-700 rounded-t-lg h-[30%]"></div>
-                      <div className="w-full bg-slate-700 rounded-t-lg h-[80%]"></div>
-                      <div className="w-full bg-green-500 rounded-t-lg h-[65%] relative group-hover:scale-105 transition-transform origin-bottom">
-                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-white text-black text-[10px] font-bold px-1.5 py-0.5 rounded shadow">Today</div>
+                  <div className="flex flex-col gap-6 mb-6">
+                    {plans.map((plan, index) => (
+                      <div key={index} className="flex flex-col gap-3">
+                        <div className="flex items-center justify-between w-full">
+                          <h3 className="text-xl font-bold text-white">{plan.text}</h3>
+                          <span className="material-icons text-green-500 text-2xl font-bold font-sans">+</span>
+                        </div>
+                        <div className="border border-white/10 p-3 rounded-2xl border-dashed w-max">
+                          <p className="text-[11px] text-white font-semibold">{plan.subtitle}</p>
+                        </div>
                       </div>
-                      <div className="w-full bg-slate-700 rounded-t-lg h-[45%]"></div>
-                      <div className="w-full bg-slate-700 rounded-t-lg h-[55%]"></div>
-                    </div>
-                    <div className="flex justify-between text-[10px] text-slate-500 mt-2 px-1">
-                      <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                    ))}
+                  </div>
+
+                  <div className="mb-6">
+                    <h3 className="text-xl font-bold text-white mb-3">Weekly Activity</h3>
+                    <div className="flex justify-between items-end h-32 px-4 py-4 bg-white/5 rounded-2xl">
+                      {week.map((day, i) => (
+                        <div key={day} className="flex flex-col items-center gap-3">
+                          <div className="w-5 rounded-full bg-white/10 h-16"></div>
+                          <span className="text-[10px] text-slate-400 font-medium">{day}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Stats Row */}
-                  <div className="flex gap-4 mb-4">
-                    <div className="flex-1 bg-slate-800/50 p-4 rounded-2xl border border-white/5">
-                      <div className="text-slate-400 text-xs mb-1">Calories</div>
-                      <div className="text-white font-bold text-lg">480</div>
-                    </div>
-                    <div className="flex-1 bg-slate-800/50 p-4 rounded-2xl border border-white/5">
-                      <div className="text-slate-400 text-xs mb-1">Heart Rate</div>
-                      <div className="text-white font-bold text-lg">112 <span className="text-xs font-normal text-slate-500">bpm</span></div>
+                  {/* Overview */}
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold text-white mb-3">Overview</h3>
+                    <div className="flex gap-3">
+                      <div className="flex-1 bg-white/5 p-4 rounded-2xl">
+                        <div className="flex justify-between items-start mb-1">
+                          <div className="text-white font-bold text-2xl">0 Days</div>
+                          <span className="material-icons text-green-400 text-base">local_fire_department</span>
+                        </div>
+                        <div className="text-slate-400 text-xs font-medium mt-1">Current Streak</div>
+                      </div>
+                      <div className="flex-1 bg-white/5 p-4 rounded-2xl">
+                        <div className="flex justify-between items-start mb-1">
+                          <div className="text-white font-bold text-2xl">0</div>
+                          <span className="material-icons text-green-400 text-base">fitness_center</span>
+                        </div>
+                        <div className="text-slate-400 text-xs font-medium mt-1">Workouts Done</div>
+                      </div>
                     </div>
                   </div>
+                  
                 </div>
 
                 {/* Bottom Nav */}
-                <div className="absolute bottom-0 w-full bg-slate-900/90 backdrop-blur-lg border-t border-white/5 py-4 px-6 flex justify-between items-center z-20">
+                <div className="absolute bottom-0 w-full bg-[#112217] backdrop-blur-lg border-t border-white py-4 px-6 flex justify-between items-center z-20">
                   <div className="flex flex-col items-center gap-1 text-transparent bg-green-500 bg-clip-text">
-                    <span className="material-icons">home</span>
+                    <span className="material-icons">dashboard</span>
                     <span className="text-[10px]">Home</span>
                   </div>
                   <div className="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300">
-                    <span className="material-icons">bar_chart</span>
-                    <span className="text-[10px]">Stats</span>
-                  </div>
-                  <div className="w-12 h-12 bg-green-500 rounded-full -mt-8 border-4 border-slate-900 flex items-center justify-center shadow-lg shadow-green-500/40 text-white cursor-pointer hover:scale-110 transition-transform">
-                    <span className="material-icons">add</span>
+                    <span className="material-icons">fitness_center</span>
+                    <span className="text-[10px]">Workouts</span>
                   </div>
                   <div className="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300">
-                    <span className="material-icons">emoji_events</span>
-                    <span className="text-[10px]">Goals</span>
+                    <span className="material-icons">leaderboard</span>
+                    <span className="text-[10px]">Progress</span>
                   </div>
                   <div className="flex flex-col items-center gap-1 text-slate-500 hover:text-slate-300">
-                    <span className="material-icons">person</span>
+                    <span className="material-icons">settings</span>
                     <span className="text-[10px]">Profile</span>
                   </div>
                 </div>
