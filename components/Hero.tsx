@@ -1,5 +1,36 @@
 import React from 'react';
 import { analytics } from '../services/firebaseService';
+import { platform } from 'os';
+
+interface StoreButtonProps {
+  platform: 'ios' | 'android';
+  onClick: () => void;
+}
+
+const StoreButton: React.FC<StoreButtonProps> = ({ platform, onClick }) => {
+  const isIOS = platform === 'ios';
+
+  return (
+    <button 
+      onClick={onClick}
+      className={`flex items-center justify-center gap-3 px-6 py-3 rounded-xl transition-colors duration-200 w-full sm:w-auto min-w-45 cursor-pointer ${
+        isIOS ? 'bg-white text-slate-900 hover:bg-gray-300' : 'bg-transparent border border-white/30 text-white hover:bg-white/10'
+      }`}
+    >
+      <span className={`material-icons text-3xl ${!isIOS ? 'text-gradient bg-green-500' : ''}`}>
+        {isIOS ? 'apple' : 'android'}
+      </span>
+      <div className="text-left">
+        <div className={`text-[10px] uppercase font-bold ${isIOS ? 'text-slate-500' : 'text-slate-400'}`}>
+          {isIOS ? 'Download on the' : 'Get it on'}
+        </div>
+        <div className="text-lg font-bold leading-none">
+          {isIOS ? 'App Store' : 'Google Play'}
+        </div>
+      </div>
+    </button>
+  );
+};
 
 const Hero: React.FC = () => {
   const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.bukos.minrepsapp&pli=1';
@@ -15,14 +46,20 @@ const Hero: React.FC = () => {
     return 'unknown';
   };
 
-  const handleDownloadClick = () => {
-    analytics.logEvent('click_download_hero');
-    
-    const device = detectDevice();
-    const targetUrl = device === 'ios' ? APP_STORE_URL : GOOGLE_PLAY_URL;
-    
-    window.open(targetUrl, '_blank');
+  type Platform = 'ios' | 'android';
+
+  const STORE_URLS: Record<Platform, string> = {
+    ios: APP_STORE_URL,
+    android: GOOGLE_PLAY_URL,
   };
+
+  const handleDownload = (platform?: Platform) => {
+    analytics.logEvent('download_click', { platform });
+    const device = platform ?? (detectDevice() as Platform);
+    const targetUrl = STORE_URLS[device] || GOOGLE_PLAY_URL;
+
+    window.open(targetUrl, '_blank');
+  }
 
   return (
     <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
@@ -43,25 +80,33 @@ const Hero: React.FC = () => {
             <p className="text-lg sm:text-xl text-slate-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               Choose from proven 6-week workout plans or create custom routines. Perfect for beginners and fitness enthusiasts who want structured, effective training at home.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button 
-                onClick={handleDownloadClick}
-                className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-green-500 hover:bg-green-600 transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transform hover:-translate-y-1"
-              >
-                Download Now
-              </button>
-              <a 
-                href="#features"
-                className="inline-flex items-center justify-center px-8 py-4 border border-slate-700 text-base font-semibold rounded-full text-slate-200 bg-transparent hover:bg-slate-800 transition-all duration-300"
-              >
-                Learn More
-              </a>
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <button 
+                  onClick={() => handleDownload()}
+                  className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-green-500 hover:bg-green-600 transition-all duration-300 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transform hover:-translate-y-1"
+                >
+                  Download Now
+                </button>
+                <a 
+                  href="#features"
+                  className="inline-flex items-center justify-center px-8 py-4 border border-slate-700 text-base font-semibold rounded-full text-slate-200 bg-transparent hover:bg-slate-800 transition-all duration-300"
+                >
+                  Learn More
+                </a>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <StoreButton platform="ios" onClick={() => handleDownload('ios')} />
+                <StoreButton platform="android" onClick={() => handleDownload('android')} />
+              </div>
+
             </div>
             <div className="mt-10 flex items-center justify-center lg:justify-start gap-6 text-sm text-slate-400">
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <span className="material-icons text-gradient bg-green-500 text-xl">check_circle</span>
                 <span>1,000+ Downloads</span>
-              </div>
+              </div> */}
               <div className="flex items-center gap-2">
                 <span className="material-icons text-gradient bg-green-500 text-xl">star</span>
                 <span>4.9 Rating</span>
