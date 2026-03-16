@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
 
           {/* Phone Mockup */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end order-2 relative">
-            <div className="relative w-70 sm:w-[320px] h-145 sm:h-160 bg-green-900 rounded-[3rem] border-8 border-green-900 shadow-2xl shadow-slate-900/50 transform rotate-6 hover:rotate-0 transition-transform duration-500">
+            <div className="relative w-70 sm:w-[320px] h-145 sm:h-160 bg-green-900 rounded-[3rem] border-8 border-green-900 shadow-2xl shadow-green-900/50 transform rotate-6 hover:rotate-0 transition-transform duration-500">
               <div className="w-full h-full rounded-[2.5rem] overflow-hidden bg-[#112217] relative">
                 
                 {/* Status Bar */}
