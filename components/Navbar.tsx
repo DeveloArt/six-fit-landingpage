@@ -4,6 +4,7 @@ import { NavItem } from '../types';
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Workout Plans', href: '/workout-plans' },
+  { label: 'Workout Plans', href: '#workout-plans' },
   { label: 'Features', href: '#features' },
   { label: 'Testimonials', href: '#testimonials' },
   { label: 'Download', href: '#download' },

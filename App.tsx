@@ -7,7 +7,7 @@ import Testimonials from './components/Testimonials';
 import Download from './components/Download';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
-import WorkoutPlans from './components/WorkoutPlans';
+import Workout from './components/Workout';
 import { analytics } from './services/firebaseService';
 
 const HomePage: React.FC = () => (
@@ -15,6 +15,7 @@ const HomePage: React.FC = () => (
     <Navbar />
     <main className="flex-grow">
       <Hero />
+      <Workout />
       <Features />
       <Testimonials />
       <Download />
@@ -34,7 +35,6 @@ const App: React.FC = () => {
     <Router basename={import.meta.env.PROD ? "/sixfit" : undefined}>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/workout-plans" element={<WorkoutPlans />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
     </Router>
