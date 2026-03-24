@@ -1,6 +1,5 @@
 import React from 'react';
 import { analytics } from '../services/firebaseService';
-import { platform } from 'os';
 
 interface StoreButtonProps {
   platform: 'ios' | 'android';
