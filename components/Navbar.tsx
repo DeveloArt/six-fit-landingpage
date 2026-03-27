@@ -5,6 +5,7 @@ import logo from '../assets/imgs/logo.png';
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Workout Plans', href: '/workout-plans' },
+  { label: 'Workout Plans', href: '#workout-plans' },
   { label: 'Features', href: '#features' },
   { label: 'Testimonials', href: '#testimonials' },
   { label: 'Download', href: '#download' },

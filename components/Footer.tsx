@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {SiFacebook, SiLinkedin, SiX} from 'react-icons/si';
 import logo from '../assets/imgs/logo.png';
 
@@ -15,7 +16,7 @@ const Footer: React.FC = () => {
           
           {/* Links */}
           <div className="flex gap-8 text-sm text-slate-400">
-            <a href="/privacy-policy" className="hover:text-green-500 hover:bg-clip-text transition-colors">Privacy Policy</a>
+            <Link to="/privacy-policy" className="hover:text-green-500 hover:bg-clip-text transition-colors">Privacy Policy</Link>
             <a href="#" className="hover:text-green-500 hover:bg-clip-text transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-green-500 hover:bg-clip-text transition-colors">Support</a>
           </div>

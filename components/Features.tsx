@@ -24,7 +24,7 @@ const FEATURES_DATA: Feature[] = [
 
 const Features: React.FC = () => {
   return (
-    <section id="features" className="py-20 bg-background-dark relative">
+    <section id="features" className="py-20 bg-linear-to-br from-[#050a14] to-background-dark relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-base text-transparent bg-green-500 bg-clip-text font-semibold tracking-wide uppercase mb-2">Features</h2>

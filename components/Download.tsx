@@ -41,7 +41,7 @@ const Download: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Start <span className="text-green-500">your</span> journey today</h2>
         <p className="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
-          Available on iOS and Android. Join over 10,000 users transforming their lives.
+          Available on iOS and Android.
         </p>
         
         <div className="flex flex-col sm:flex-row justify-center gap-4">
