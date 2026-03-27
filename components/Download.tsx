@@ -34,12 +34,12 @@ const Download: React.FC = () => {
 
   return (
     <section id="download" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-linear-to-br from-slate-900 to-black z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#050a14] to-black"></div>
       {/* Pattern Overlay */}
       <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] z-0"></div>
       
       <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Start your journey today</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Start <span className="text-green-500">your</span> journey today</h2>
         <p className="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
           Available on iOS and Android.
         </p>
